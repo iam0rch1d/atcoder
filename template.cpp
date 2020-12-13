@@ -41,6 +41,7 @@ T euclidean(pair<T, T> a, pair<T, T> b) { return square(b.first - a.first) + squ
 
 int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    //cout << fixed << precision(10);
 
     return 0;
 }
