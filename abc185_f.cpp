@@ -13,8 +13,8 @@ using pii = pair<int, int>;
 #define IFOR_(i, x, y) for (int i = y; i >= x; i--)
 #define REP(i, x) FOR(i, 0, x)
 
-template<typename T> void chmax(T &m, const T &q) { m = max(m, q); }
-template<typename T> void chmin(T &m, const T &q) { m = min(m, q); }
+template<typename T> void chmax(T &m, const T q) { m = max(m, q); }
+template<typename T> void chmin(T &m, const T q) { m = min(m, q); }
 
 unsigned op(unsigned x, unsigned y) {
     return x ^ y;

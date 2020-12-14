@@ -15,10 +15,10 @@ using pii = pair<int, int>;
 #define DEBUG(x) cerr << "\033[1;35m" << x << "\033[0m\n"
 
 template<typename T>
-void chmax(T &m, const T &q) { m = max(m, q); }
+void chmax(T &m, const T q) { m = max(m, q); }
 
 template<typename T>
-void chmin(T &m, const T &q) { m = min(m, q); }
+void chmin(T &m, const T q) { m = min(m, q); }
 
 template<typename T>
 void sort_unique(vector<T> &v) {
