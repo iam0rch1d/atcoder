@@ -4,12 +4,12 @@ using namespace std;
 using namespace atcoder;
 
 using ll = long long;
-using pi = pair<int, int>;
+using pii = pair<int, int>;
 using pll = pair<ll, ll>;
 using vb = vector<bool>;
 using vi = vector<int>;
 using vll = vector<ll>;
-using vpi = vector<pi>;
+using vpii = vector<pii>;
 using vpll = vector<pll>;
 using vvi = vector<vector<int>>;
 using vstr = vector<string>;
@@ -53,11 +53,49 @@ T manhattan(pair<T, T> a, pair<T, T> b) { return abs(b.F - a.F) + abs(b.S - a.S)
 template<typename T>
 T euclidean(pair<T, T> a, pair<T, T> b) { return square(b.F - a.F) + square(b.S - a.S); }
 
+tuple<ll, ll, ll> extgcd(ll a, ll b) {
+    if (!b) return {a, 1, 0};
+
+    ll g;
+    ll x;
+    ll y;
+
+    tie(g, x, y) = extgcd(b, a % b);
+
+    return {g, y, x - a / b * y};
+}
+
+ll solve() {
+    ll n;
+    ll s;
+    ll k;
+
+    cin >> n >> s >> k;
+
+    ll g;
+    ll x;
+    ll y;
+
+    tie(g, x, y) = extgcd(k, n);
+
+    if (s % g) return -1;
+
+    n /= g;
+    s /= g;
+    k /= g;
+
+    return (n - (x * s) % n) % n;
+}
+
 int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     //cout << fixed << setprecision(10);
 
+    int t;
 
+    cin >> t;
+
+    while (t--) PRINTLN(solve());
 
     return 0;
 }

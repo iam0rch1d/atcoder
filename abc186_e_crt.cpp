@@ -53,11 +53,33 @@ T manhattan(pair<T, T> a, pair<T, T> b) { return abs(b.F - a.F) + abs(b.S - a.S)
 template<typename T>
 T euclidean(pair<T, T> a, pair<T, T> b) { return square(b.F - a.F) + square(b.S - a.S); }
 
+ll solve() {
+    ll n;
+    ll s;
+    ll k;
+
+    cin >> n >> s >> k;
+
+    auto p = crt({0, s}, {n, k});
+
+    if (!p.S) return -1;
+
+    ll y = p.F;
+
+    if (y < s) y += p.S;
+
+    return (y - s) / k;
+}
+
 int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     //cout << fixed << setprecision(10);
 
+    int t;
 
+    cin >> t;
+
+    while (t--) PRINTLN(solve());
 
     return 0;
 }

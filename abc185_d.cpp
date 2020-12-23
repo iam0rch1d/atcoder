@@ -4,12 +4,12 @@ using namespace std;
 using namespace atcoder;
 
 using ll = long long;
-using pii = pair<int, int>;
+using pi = pair<int, int>;
 
 #define ALL(x) x.begin(), x.end()
 #define FOR(i, x, y) for (int i = x; i < y; i++)
 #define FOR_(i, x, y) for (int i = x; i <= y; i++)
-#define IFOR(i, x, y) for (int i = y; i > x; i--)
+#define IFOR(i, x, y) for (int i = y - 1; i >= x; i--)
 #define IFOR_(i, x, y) for (int i = y; i >= x; i--)
 #define REP(i, x) FOR(i, 0, x)
 
@@ -41,7 +41,7 @@ int main() {
 
     a.push_back(0);
     a.push_back(n + 1);
-    sort(a.begin(), a.end());
+    sort(ALL(a));
 
     FOR_(i, 1, m + 1) if (a[i] - a[i - 1] > 1) differences.push_back(a[i] - a[i - 1] - 1);
 

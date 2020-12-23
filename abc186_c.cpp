@@ -57,7 +57,31 @@ int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     //cout << fixed << setprecision(10);
 
+    int n;
+    int hateCount = 0;
 
+    cin >> n;
+
+    FOR_(i, 7, n) {
+        bool isHated = false;
+        int temp = i;
+
+        while (temp) {
+            if (temp % 8 == 7) isHated = true;
+            temp /= 8;
+        }
+
+        temp = i;
+
+        while (temp) {
+            if (temp % 10 == 7) isHated = true;
+            temp /= 10;
+        }
+
+        if (isHated) hateCount++;
+    }
+
+    PRINTLN(n - hateCount);
 
     return 0;
 }

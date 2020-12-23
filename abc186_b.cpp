@@ -57,7 +57,24 @@ int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     //cout << fixed << setprecision(10);
 
+    int h;
+    int w;
+    int aMin = 987654321;
+    int ans = 0;
 
+    cin >> h >> w;
+
+    vvi a(h, vi(w));
+
+    FOR(i, 0, h) FOR(j, 0, w) {
+        cin >> a[i][j];
+
+        chmin(aMin, a[i][j]);
+    }
+
+    FOR(i, 0, h) FOR(j, 0, w) ans += a[i][j] - aMin;
+
+    PRINTLN(ans);
 
     return 0;
 }

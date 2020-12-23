@@ -57,7 +57,24 @@ int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     //cout << fixed << setprecision(10);
 
+    int n;
+    ll ans = 0;
 
+    cin >> n;
+
+    vll a(n);
+    vll s(n + 1, 0);
+
+    FOR(i, 0, n) cin >> a[i];
+
+    sort(ALL(a));
+    a.insert(a.begin(), 0);
+
+    FOR_(i, 1, n) s[i] = s[i - 1] + a[i];
+
+    FOR(i, 1, n) ans += s[n] - s[i] - (n - i) * a[i];
+
+    PRINTLN(ans);
 
     return 0;
 }

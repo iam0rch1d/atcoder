@@ -57,7 +57,11 @@ int main() {
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     //cout << fixed << setprecision(10);
 
+    int n;
+    int w;
 
+    cin >> n >> w;
+    PRINTLN(n / w);
 
     return 0;
 }
