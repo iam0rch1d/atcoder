@@ -4,7 +4,7 @@ using namespace std;
 using namespace atcoder;
 
 using ll = long long;
-using pi = pair<int, int>;
+using pii = pair<int, int>;
 
 #define ALL(x) x.begin(), x.end()
 #define FOR(i, x, y) for (int i = x; i < y; i++)
@@ -28,7 +28,7 @@ int main() {
 
     maxN = n;
 
-    vector<pi> times(m + 1);
+    vector<pii> times(m + 1);
 
     times[0] = {0, 0};
 

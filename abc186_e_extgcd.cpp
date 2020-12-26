@@ -54,15 +54,15 @@ template<typename T>
 T euclidean(pair<T, T> a, pair<T, T> b) { return square(b.F - a.F) + square(b.S - a.S); }
 
 tuple<ll, ll, ll> extgcd(ll a, ll b) {
-    if (!b) return {a, 1, 0};
+    if (!b) return {1, 0, a};
 
-    ll g;
     ll x;
     ll y;
+    ll g;
 
-    tie(g, x, y) = extgcd(b, a % b);
+    tie(x, y, g) = extgcd(b, a % b);
 
-    return {g, y, x - a / b * y};
+    return {y, x - a / b * y, g};
 }
 
 ll solve() {
@@ -72,11 +72,11 @@ ll solve() {
 
     cin >> n >> s >> k;
 
-    ll g;
     ll x;
     ll y;
+    ll g;
 
-    tie(g, x, y) = extgcd(k, n);
+    tie(x, y, g) = extgcd(k, n);
 
     if (s % g) return -1;
 
@@ -84,7 +84,7 @@ ll solve() {
     s /= g;
     k /= g;
 
-    return (n - (x * s) % n) % n;
+    return ((x * -s) % n + n) % n;
 }
 
 int main() {
